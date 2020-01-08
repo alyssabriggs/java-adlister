@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 public class ServletBonusPong extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         writer.println("<a href='/ping'>PING!</a>");
