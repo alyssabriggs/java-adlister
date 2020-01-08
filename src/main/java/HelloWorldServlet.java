@@ -16,13 +16,23 @@ public class HelloWorldServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String name = request.getParameter("name");
+        String reset = request.getParameter("reset");
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
-        writer.println("<h1>Hello, World!</h1>");
+        if (name == null) {
+            writer.println("<h1>Hello, World!</h1>");
+        } else {
+            writer.println("<h1>Hello, " + name + "!</h1>");
+        }
         writer.println("<form><fieldset style='width:15%'>");
         writer.println("<h3>Welcome to my website!</h3><hr>");
         writer.println("You are visitor number: " + (++iHitCounter));
         writer.println("</fieldset></form>");
+        if (reset.equals("yes")){
+            iHitCounter = 0;
+        }
+
     }
 
 
