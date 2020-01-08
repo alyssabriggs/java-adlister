@@ -17,12 +17,12 @@ public class HelloWorldServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h1>Hello, World!</h1>");
-        out.println("<form><fieldset style='width:15%'>");
-        out.println("<h3>Welcome to my website!</h3><hr>");
-        out.println("You are visitor number: " + (++iHitCounter));
-        out.println("</fieldset></form>");
+        PrintWriter writer = response.getWriter();
+        writer.println("<h1>Hello, World!</h1>");
+        writer.println("<form><fieldset style='width:15%'>");
+        writer.println("<h3>Welcome to my website!</h3><hr>");
+        writer.println("You are visitor number: " + (++iHitCounter));
+        writer.println("</fieldset></form>");
     }
 
 
