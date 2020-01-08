@@ -12,22 +12,32 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body class="container">
+<%@ include file="/partials/head.jsp" %>
 <form method="POST" action="/login.jsp">
     <label for="username">Username:</label>
-    <input id="username" name="username" placeholder="Enter your email address" />
+    <input id="username" name="username" placeholder="Enter username" /><br>
     <label for="password">Password:</label>
-    <input id="password" name="password" type="password" placeholder="Enter your password" />
+    <input id="password" name="password" type="password" placeholder="Enter password" /><br>
     <button type="submit">Login</button>
 </form>
 
-<h1>${param.username}</h1>
-<%--<c:if test="true">--%>
-<%--    <h1>Variable names should be very descriptive</h1>--%>
-<%--</c:if>--%>
-<%--<c:if test="false">--%>
-<%--    <h1>single letter variable names are good</h1>--%>
-<%--</c:if>--%>
+<c:choose>
+<c:when test="${param.username == 'admin' && param.password == 'password'}">
+    <%
+        response.sendRedirect("/profile.jsp");
+    %>
+</c:when>
+<c:when test="${param.username != 'admin' && param.username != null || param.password != 'password' &&param.password !=
+null}">
+    <%
+        response.sendRedirect("/login.jsp");
+    %>
+</c:when>
+<c:otherwise>
+    <h1>Welcome!</h1>
+</c:otherwise>
+</c:choose>
 
 </body>
 </html>
