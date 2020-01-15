@@ -10,7 +10,8 @@ public class DaoFactory {
     public static Ads getAdsDao() throws SQLException {
 
         if (adsDao == null) {
-            adsDao = new MySQLAdsDao();
+            Config config = new Config();
+            adsDao = new MySQLAdsDao(config);
         }
         return adsDao;
     }

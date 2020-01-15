@@ -19,12 +19,10 @@ public class MySQLAdsDao implements Ads {
     private Connection connection;
 
     //constructor
-    public MySQLAdsDao() throws SQLException {
+    public MySQLAdsDao(Config config) throws SQLException {
 
         //surround in a try catch
         try {
-            //
-            Config config = new Config();
             // register the driver & make sure you import the right driver class
             DriverManager.registerDriver(new Driver());
             // use driver manager to get connection
