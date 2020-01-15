@@ -1,5 +1,8 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.Users;
+import com.codeup.adlister.models.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +28,7 @@ public class LoginServlet extends HttpServlet {
         // TODO: make sure we find a user with that username
         // TODO: check the submitted password against what you have in your database
         boolean validAttempt = false;
+        if (username.equalsIgnoreCase())
 
         if (validAttempt) {
             // TODO: store the logged in user object in the session, instead of just the username
