@@ -18,3 +18,6 @@ CREATE TABLE IF NOT EXISTS ads (
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
+
+INSERT INTO users (username, email, password)
+VALUES ('johndoe', 'john@mail.com', 'password');

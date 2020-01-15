@@ -1,3 +1,5 @@
+package models;
+
 public class Ad {
     private long id;
     private long userId;
@@ -47,5 +49,15 @@ public class Ad {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Ad{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
