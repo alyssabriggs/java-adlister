@@ -29,12 +29,22 @@ public class MySQLUsersDao implements Users {
     @Override
     public User findByUsername(String username) {
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM users");
+            String sql = "SELECT * FROM users WHERE username=?";
+            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, username);
+
             ResultSet rs = stmt.executeQuery();
-            return (User) createUsersFromResults(rs);
+            rs.next();
+
+            return new User(rs.getLong("id"),
+                    rs.getString("username"),
+                    rs.getString("email"),
+                    rs.getString("password")
+            );
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all users.", e);
         }
+
     }
 
     @Override

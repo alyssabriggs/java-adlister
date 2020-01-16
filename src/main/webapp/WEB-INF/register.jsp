@@ -16,24 +16,20 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <h1>Register Below: </h1>
-<form action="/register" method="post">
-    <div class="row">
-        <div class="col">
-            <label for="username">First Name</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="Pick a username">
+<form action="/register" method="post" class="form-inline">
+        <div class="form-group mb-2">
+            <label for="username" class="sr-only">Username</label>
+            <input type="username" class="form-control" id="username" placeholder="Username">
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+        <div class="form-group mb-2">
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Email">
         </div>
-        <div class="col">
-            <label for="password">Title</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="inputPassword2" class="sr-only">Password</label>
+            <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
         </div>
-    </div>
-    <div><button type="submit" class="btn btn-primary">Register</button></div>
+    <button type="submit" class="btn btn-primary">Register</button>
 </form>
 </div>
 </body>
